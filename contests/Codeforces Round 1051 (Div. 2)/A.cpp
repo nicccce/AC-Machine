@@ -1,3 +1,4 @@
+https://codeforces.com/contest/2143/problem/A
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long 
