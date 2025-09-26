@@ -3,7 +3,7 @@
 using namespace std;
 #define int long long
 #define pb push_back
-const int N=1e6+5,mod=10007;
+const int N=1e6+5,mod=998244353;
 int frac[N]={1};
 signed main() {
     ios::sync_with_stdio(0);
@@ -23,7 +23,7 @@ signed main() {
     auto solve = [&]() {
         int n;
         cin>>n;
-        
+        cout<<frac[2*n]*qpow(frac[n],mod-2)%mod*qpow(frac[n],mod-2)%mod*qpow(n-1,mod-2)%mod<<'\n';
     };
 
     // int t;
