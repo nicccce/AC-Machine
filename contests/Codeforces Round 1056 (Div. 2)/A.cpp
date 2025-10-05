@@ -18,7 +18,6 @@ signed main() {
             bz+=sz/2;
             cnt+=sz/2;
             sz=(sz+1)/2;
-            cout<<cnt<<' '<<bz<<' '<<sz<<'\n';
         }
         cout<<cnt+1<<'\n';
     };
