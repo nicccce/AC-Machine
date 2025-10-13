@@ -59,45 +59,12 @@ signed main() {
             }
             ans[u]=min(cnt2+son_size[u]*tmp2,cnt5+son_size[u]*tmp5);
         };
-
-
-        function<void(int, int,int&,int&)> dp = [&](int u, int son, int& cnt2,int & cnt5) {
-            if(u==0)return;
-            int cur_size = son_size[u] - son_size[son];
-            // cout<<'u'<<':'<<u<<'\n'<<'c'<<"ur:"<<cur_size<<'\n';
-            tmp=u;
-            while (tmp%2==0)
-            {
-                cnt2+=cur_size;
-                tmp/=2;
-            }
-            while (tmp%5==0)
-            {
-                cnt5+=cur_size;
-                tmp/=5;
-            }
-            dp(daddy[u], u,cnt2,cnt5);
-        };
+        dfs2(1,0,0,0);
 
         while(q--) {
             int x; cin >> x;
-            // cout << "x: " << x << "\n";
-            int cnt2=0,cnt5=0;
-            tmp=x;
-            // cout<<tmp<<' '<<tmp%2<<'\n';
-            while (tmp%2==0)
-            {
-                cnt2+=son_size[x];
-                tmp/=2;
-            }
-            while (tmp%5==0)
-            {
-                cnt5+=son_size[x];
-                tmp/=5;
-            }
-            // cout<<son_size[x]<<' '<<cnt2<<' '<<cnt5<<'\n';
-            dp(daddy[x], x,cnt2,cnt5);
-            cout<<min(cnt2,cnt5)<<'\n';
+
+            cout<<ans[x]<<'\n';
         }
         
     };
