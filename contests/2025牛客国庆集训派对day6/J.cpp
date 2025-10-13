@@ -1,3 +1,4 @@
+// https://ac.nowcoder.com/acm/contest/117509/J
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
