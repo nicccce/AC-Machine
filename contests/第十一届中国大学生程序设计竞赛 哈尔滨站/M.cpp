@@ -89,34 +89,16 @@ signed main(){
         vector<int> a1(n),a2(n),a3(n),res,pre1(n),pre2(n),pre3(n);
         for(int i=0;i<n;i++)a1[i]=str1[i]-'0',a2[i]=str2[i]-'0',a3[i]=str3[i]-'0';
         pre1[0]=a1[0],pre2[0]=a2[0],pre3[0]=a3[0];
-        for(int i=1;i<n;i++){
-            pre1[i]=pre1[i-1]+a1[i];
-            pre2[i]=pre2[i-1]+a2[i];
-            pre3[i]=pre3[i-1]+a3[i];
-        }
-        res = multiply_polynomials(a1,a2);
-        res.push_back(0);
-        ans+=pre1[n/2]*pre2[n/2]*pre3[n/2];
-        for(int i=0;i<n;i++){
-            ans+=-a3[i]*res[n-i];
-        }for(int i=n/2+1;i<n;i++){
-            ans+=a1[i]*pre2[n-i]*pre3[n-i]+a2[i]*pre1[n-i]*pre3[n-i]+a3[i]*pre2[n-i]*pre1[n-i];
-        }
+        for(int i=1;i<n;i++)pre1[i]=pre1[i-1]+a1[i],pre2[i]=pre2[i-1]+a2[i],pre3[i]=pre3[i-1]+a3[i];
+        res = multiply_polynomials(a1,a2),res.push_back(0),ans+=pre1[n/2]*pre2[n/2]*pre3[n/2];
+        for(int i=0;i<n;i++)ans+=-a3[i]*res[n-i];
+        for(int i=n/2+1;i<n;i++)ans+=a1[i]*pre2[n-i]*pre3[n-i]+a2[i]*pre1[n-i]*pre3[n-i]+a3[i]*pre2[n-i]*pre1[n-i];
         for(int i=0;i<n;i++)a1[i]=1-a1[i],a2[i]=1-a2[i],a3[i]=1-a3[i];
         pre1[0]=a1[0],pre2[0]=a2[0],pre3[0]=a3[0];
-        for(int i=1;i<n;i++){
-            pre1[i]=pre1[i-1]+a1[i];
-            pre2[i]=pre2[i-1]+a2[i];
-            pre3[i]=pre3[i-1]+a3[i];
-        }
-        res = multiply_polynomials(a1,a2);
-        res.push_back(0);
-        ans+=pre1[n/2]*pre2[n/2]*pre3[n/2];
-        for(int i=0;i<n;i++){
-            ans+=-a3[i]*res[n-i];
-        }for(int i=n/2+1;i<n;i++){
-            ans+=a1[i]*pre2[n-i]*pre3[n-i]+a2[i]*pre1[n-i]*pre3[n-i]+a3[i]*pre2[n-i]*pre1[n-i];
-        }
+        for(int i=1;i<n;i++)pre1[i]=pre1[i-1]+a1[i],pre2[i]=pre2[i-1]+a2[i],pre3[i]=pre3[i-1]+a3[i];
+        res = multiply_polynomials(a1,a2),res.push_back(0),ans+=pre1[n/2]*pre2[n/2]*pre3[n/2];
+        for(int i=0;i<n;i++)ans+=-a3[i]*res[n-i];
+        for(int i=n/2+1;i<n;i++)ans+=a1[i]*pre2[n-i]*pre3[n-i]+a2[i]*pre1[n-i]*pre3[n-i]+a3[i]*pre2[n-i]*pre1[n-i];
         cout<<ans<<'\n';
     };
 
