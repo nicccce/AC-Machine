@@ -1,0 +1,1 @@
+{"name":"Local: M","url":"e:\\ACM\\AC-Machine\\contests\\第十一届中国大学生程序设计竞赛 哈尔滨站\\M.cpp","tests":[{"id":1762868289467,"input":" 3\n 1\n 0\n 0\n 0\n 1\n 0\n 0\n 1\n 3\n 010\n 100\n 001","output":"1\n0\n4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\ACM\\AC-Machine\\contests\\第十一届中国大学生程序设计竞赛 哈尔滨站\\M.cpp","group":"local","local":true}
