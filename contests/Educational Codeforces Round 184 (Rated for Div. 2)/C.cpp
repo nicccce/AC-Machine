@@ -10,18 +10,18 @@ signed main()
     cin.tie(0), cout.tie(0);
 
     auto solve = [&]() {
-        int n,b;
-        cin>>n>>b;
-        vector<int> a(n);
-        for(int i=0;i<n;i++)cin>>a[i];
-        sort(a.begin(),a.end());
-        int x=a.end()-upper_bound(a.begin(),a.end(),b),y=lower_bound(a.begin(),a.end(),b)-a.begin()+1;
-        if(y>x){
-            cout<<b-1<<'\n';
-        }else{
-            cout<<b+1<<'\n';
+        int n;
+        cin>>n;
+        vector<int> a(n+1),p(n+1);
+        int ans=0,mn=0,summ=0;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+            summ+=a[i];
+            p[i]=p[i-1]+i*i+i-(i-1)*(i-1)-(i-1)-a[i];
+            ans=max(ans,p[i]-mn);
+            mn=min(p[i],mn);
         }
-
+        cout<<summ+ans<<'\n';
     };
 
     int t;
