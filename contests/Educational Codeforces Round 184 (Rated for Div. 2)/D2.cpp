@@ -9,37 +9,22 @@ signed main()
     ios::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
     auto solve = [&]() {
-        int x, y, k;
-        cin>>x>>y>>k;
-        int L=1e12;
-        for (int i = 0; i < x; i++) {
-            if (L < y) break;
-            L -= L / y;
-        }
-        if (L < k) {
-            cout << "-1\n";
-            return;
-        }
-        auto check = [&](int p){
-            int kept = p;
-            for (int i = 0; i < x; i++) {
-                if (p < y) break;
-                int take = p / y;
-                kept -= take;
-                p -= take;
-            }
-            return kept>=k;
-        };
-        int low = 1, high = 1e18;
-        while (low < high) {
-            int mid = (low + high) / 2;
-            if (check(mid)) {
-                high = mid;
-            } else {
-                low = mid + 1;
-            }
-        }
-        cout << low << '\n';
+        int x,y,k; cin>>x>>y>>k;
+		if(y==1) {
+			cout<<-1<<"\n";
+			return;
+		}
+		int ans=k;
+		int rem=x;
+		while(rem>0&&ans<=1e12) {
+			int g=(ans-1)/(y-1);
+			if(g==0) break;
+			int top=(g+1)*(y-1)-ans+1;
+			int need=(top+g-1)/g;
+			ans+=min(rem,need)*g;
+			rem-=min(rem,need);
+		}
+		cout<<(ans<=1e12? ans:-1)<<"\n";
     };
 
     int t;
