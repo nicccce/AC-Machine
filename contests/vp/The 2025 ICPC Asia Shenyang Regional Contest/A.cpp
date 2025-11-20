@@ -42,7 +42,7 @@ bool check(unsigned long long x) {
     //     if (ans >= k) return 1;
     // }
     
-    for (unsigned long long d = 1; d < min((unsigned long long)20000000, n); d ++) {
+    for (unsigned long long d = 1;; d ++) {
         unsigned long long res = (x - a*d*d - 2*b*d)/(2*a*d);
         if (x - a*d*d - 2*b*d <= 0) break;
         res = min(res, n-d); 

@@ -26,39 +26,43 @@ signed main()
             {1,1,1,1,0,1,1}
         };
         vector<int> checknums(){
-            vector<int> cnt(3);
+            vector<int> cnt(4);
             cnt[0]=1;
             cnt[1]=1;
+            cnt[2]=1;
             for(int i=0;i<7;i++){
                 if(p[i]==1){
                     cnt[0]-=1;
+                    cnt[1]-=1;
                     break;
                 }
             }
             for(int i=0;i<7;i++){
                 if(nums[0][i]==0&&p[i]==1){
-                    cnt[1]-=1;
+                    cnt[2]-=1;
                     break;
                 }
                 if(nums[0][i]==1&&p[i]==0){
-                    cnt[1]-=1;
+                    cnt[2]-=1;
                     break;
                 }
             }
             for(int i=1;i<=9;i++){
-                cnt[2]+=1;
+                cnt[3]+=1;
                 for(int j=0;j<7;j++){
                     if(nums[i][j]==0&&p[j]==1){
-                        cnt[2]-=1;
+                        cnt[3]-=1;
                         break;
                     }
                     if(nums[i][j]==1&&p[j]==0){
-                        cnt[2]-=1;
+                        cnt[3]-=1;
                         break;
                     }
                 }
             }
-            cnt[1]+=cnt[2];
+            cnt[2]+=cnt[2];
+            cnt[0]*=cnt[2];
+            cnt[1]*=cnt[3];
             return cnt;
         }
     };
@@ -97,7 +101,7 @@ signed main()
         vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(k+1,vector<int>(3,0))),dpcnt(n+1,vector<vector<int>>(k+1,vector<int>(3,0)));
         dp[0][0][0]=dpcnt[0][0][0]=1;
         for(int i=1;i<=n;i++){
-            vector<vector<int>> cnt(8,vector<int>(3,0)),samecnt(8,vector<int>(3,0));
+            vector<vector<int>> cnt(8,vector<int>(4,0)),samecnt(8,vector<int>(4,0));
             for(int g=0;g<(1ll<<7);g++){
                 led nowled;
                 nowled.p = vector<int>(a[i].p);
@@ -109,7 +113,7 @@ signed main()
                     }
                 }
                 auto nums = nowled.checknums();
-                for(int j=0;j<3;j++){
+                for(int j=0;j<4;j++){
                     if(cnt[cntseg][j]<nums[j]){
                         cnt[cntseg][j]=nums[j];
                         samecnt[cntseg][j]=1;
