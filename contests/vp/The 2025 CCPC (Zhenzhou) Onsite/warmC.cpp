@@ -1,5 +1,6 @@
-// https://qoj.ac/contest/2643/problem/15302
+// https://qoj.ac/contest/2644/problem/15298
 #include <bits/stdc++.h>
+#define int long long
 using namespace std;
 
 int n, m, k;
@@ -23,13 +24,13 @@ void solve() {
     int x = upper_bound(a.begin() + 1, a.end(), m) - a.begin();
     x--;
     
-    long long mi = 1e14;
-    for (int y = 1; y <= k - x; y++) {
-        long long cnt = pre[x] * y + pre[k - y] * y - (pre[k] - pre[k - y]) * (n - k) + m * (n - x + y) * y;
+    int mi = 1e14;
+    for (int y = 0; y <= k - x; y++) {
+        int cnt = pre[x] * y + pre[k - y] * y - (pre[k] - pre[k - y]) * (n - k) + m * (n - x + y) * y;
         mi = min(mi, cnt);
     }
 
-    long long basic = 0;
+    int basic = 0;
     for (int i = 1; i <= k; i++) {
         basic += a[i] * (n - i + 1);
     }
@@ -38,7 +39,7 @@ void solve() {
     cout << mi << "\n";
 }
 
-int main() {
+signed main() {
     int t;
     cin >> t;
     while (t--) {
