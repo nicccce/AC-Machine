@@ -12,7 +12,10 @@ signed main() {
         vector<cube> a(n);
         for(int i=0;i<n;i++)cin>>a[i].x>>a[i].y>>a[i].z;
         int ans=1,cnt=0,ind=0;
-        if(n%((p+1)*(q+1)*(r+1)))ans=0;
+        if(n%((p+1)*(q+1)*(r+1))){
+            cout<<0<<'\n';
+            return;
+        }
         sort(a.begin(),a.end(),[&](cube x,cube y){
             return x.x<y.x;
         });
