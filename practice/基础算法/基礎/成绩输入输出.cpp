@@ -1,4 +1,4 @@
-// https://www.nowcoder.com/practice/6dd1bc8539db4b7199f4972a5dc14bd2?channelPut=tracker3
+// https://www.nowcoder.com/practice/eb49750ef0de47168c21761de086d97c?channelPut=tracker3
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -8,7 +8,9 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        cout<<"Hello Nowcoder!";
+        int a,b,c;
+        cin>>a>>b>>c;
+        printf("score1=%d,score2=%d,score3=%d",a,b,c);
     };
     // int t;
     // for(cin>>t;t;t--)

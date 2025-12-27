@@ -1,4 +1,3 @@
-// https://www.nowcoder.com/practice/6dd1bc8539db4b7199f4972a5dc14bd2?channelPut=tracker3
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -8,7 +7,10 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        cout<<"Hello Nowcoder!";
+        char n;
+        cin>>n;
+        printf("  %c\n %c%c%c\n%c%c%c%c%c\n %c%c%c\n  %c",n,n,n,n,n,n,n,n,n,n,n,n,n);
+        
     };
     // int t;
     // for(cin>>t;t;t--)
