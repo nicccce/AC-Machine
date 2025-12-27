@@ -7,13 +7,13 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        char c;
-        int a;
-        double f;
-        cin>>c>>a>>f;
-        cout<<c<<' '<<a<<' ';
-        printf("%f",f);
-        
+        // int m,n;
+        // cin>>m>>n;
+        // printf("%f",1.0*m/n);
+        string s;
+        cin>>s;
+        reverse(s.begin(),s.end());
+        cout<<s;
     };
     // int t;
     // for(cin>>t;t;t--)
