@@ -7,8 +7,8 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int n;
-        cout<<n*1024*1024/4;
+        double a,b,c;cin>>a>>b>>c;
+        cout<<a*0.2+b*0.3+c*0.5;
     };
     // int t;
     // for(cin>>t;t;t--)

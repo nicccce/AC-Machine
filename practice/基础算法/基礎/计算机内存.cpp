@@ -8,6 +8,7 @@ signed main() {
 
     auto solve = [&]() {
         int n;
+        cin>>n;
         cout<<n*1024*1024/4;
     };
     // int t;
