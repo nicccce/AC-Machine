@@ -8,7 +8,7 @@ signed main() {
 
     auto solve = [&]() {
         int n;cin>>n;
-        cout<<((n)/12)*4+2;
+        cout<<((n>=60)?"Pass":"Fail");
     };
     // int t;
     // for(cin>>t;t;t--)
