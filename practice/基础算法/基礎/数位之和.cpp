@@ -7,9 +7,14 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-        cout<<(a+b-c)*d;
+        string n;
+        cin>>n;
+        if(n[0]=='-')n=n.substr(1);
+        int sum=0;
+        for(auto c:n){
+            sum+=c-'0';
+        }
+        cout<<sum<<endl;
     };
     // int t;
     // for(cin>>t;t;t--)

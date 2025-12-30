@@ -7,9 +7,15 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-        cout<<(a+b-c)*d;
+        int n;
+        cin>>n;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            int x;
+            cin>>x;
+            sum+=x;
+        }
+        cout<<sum<<endl;
     };
     // int t;
     // for(cin>>t;t;t--)

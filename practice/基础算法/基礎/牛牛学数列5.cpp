@@ -7,9 +7,15 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-        cout<<(a+b-c)*d;
+        int n;
+        cin>>n;
+        vector<int> fbnq(n);
+        fbnq[0]=1;
+        fbnq[1]=1;
+        for(int i=2;i<n;i++){
+            fbnq[i]=fbnq[i-1]+fbnq[i-2];
+        }
+        cout<<fbnq[n-1]<<endl;
     };
     // int t;
     // for(cin>>t;t;t--)

@@ -7,12 +7,12 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-        cout<<(a+b-c)*d;
+        int a,b;
+        cin>>a>>b;
+        cout<<a+b<<endl;
     };
-    // int t;
-    // for(cin>>t;t;t--)
+    int t;
+    for(cin>>t;t;t--)
     solve();
     return 0;
 }

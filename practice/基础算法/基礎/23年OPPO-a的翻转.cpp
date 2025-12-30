@@ -7,13 +7,14 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int n,a,b,c,cnt=0;
-        cin>>n;
+        string s;
+        int ans=0;
+        cin>>s;
+        int n=s.size();
         for(int i=0;i<n;i++){
-            cin>>a>>b>>c;
-            if(a+b+c<180)cnt++;
+            ans+=((s[i]-'0')*pow(10,n-i-1))+((s[i]-'0')*pow(10,i));
         }
-        cout<<cnt<<endl;
+        cout<<ans<<endl;
     };
     // int t;
     // for(cin>>t;t;t--)

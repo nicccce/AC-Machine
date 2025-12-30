@@ -7,9 +7,13 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-        cout<<(a+b-c)*d;
+        int n;
+        cin>>n;
+        double ans=0;
+        for(int i=1;i<=n;i++){
+            ans+=1.0/i;
+        }
+        cout<<ans<<endl;
     };
     // int t;
     // for(cin>>t;t;t--)
