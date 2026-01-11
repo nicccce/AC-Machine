@@ -8,17 +8,13 @@ signed main() {
     auto solve = [&]() {
         int n;
         cin>>n;
-        vector<int> a(n+1);
-        for(int i=1;i<=2*n;i++){
-            int x;
-            cin>>x;
-            if(x<=n) a[x]++;
-        }
         int ans=0;
         for(int i=1;i<=n;i++){
-            ans+=min(a[i],2LL);
+            int x;
+            cin>>x;
+            if(x&1)ans++;
         }
-        cout<<ans<<"\n";
+        cout<<(ans==0?-1:ans)<<"\n";
     };
     // int t;
     // for(cin>>t;t;t--)
