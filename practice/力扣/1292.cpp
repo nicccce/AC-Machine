@@ -1,3 +1,4 @@
+// https://leetcode.cn/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/solutions/101737/yuan-su-he-xiao-yu-deng-yu-yu-zhi-de-zheng-fang-2/?envType=daily-question&envId=2026-01-19
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
