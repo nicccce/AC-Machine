@@ -9,7 +9,7 @@ public:
         for(int i=0;i<n;i++){
             int x=nums[i];
             if(x&1)
-            ans[i]=((x&(x-((x^(x+1))>>2)))&((x^(x+1))>>2));
+            ans[i]=((x&(x-((x^(x+1))>>1)))|((x^(x+1))>>2));
             else
             ans[i]=-1;
         }
