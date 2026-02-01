@@ -1,10 +1,27 @@
-// 
+// https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/?envType=problem-list-v2&envId=dynamic-programming
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
 
-
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n=prices.size();
+        vector<int> dp(n+1,0);
+        int mi=1000000;
+        for(int i=0;i<n;i++){
+            dp[i+1]=max(dp[i],prices[i]-mi);
+            mi=min(prices[i],mi);
+        }mi=1000000;
+        for(int i=0;i<n;i++){
+            // int tmp=dp[i+1];
+            dp[i+1]=max(dp[i],prices[i]-mi);
+            mi=min(prices[i]-dp[i+1],mi);
+        }
+        return dp[n];
+    }
+};
 
 
 ll qpow(ll b, ll p, ll mod)

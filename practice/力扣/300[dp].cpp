@@ -1,10 +1,24 @@
-// 
+// https://leetcode.cn/problems/longest-increasing-subsequence/
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
 
-
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> g;
+        for (int x : nums) {
+            auto it = lower_bound(g.begin(),g.end(),x);
+            if (it == g.end()) {
+                g.push_back(x);
+            } else {
+                *it = x;
+            }
+        }
+        return g.size();
+    }
+};
 
 
 ll qpow(ll b, ll p, ll mod)
