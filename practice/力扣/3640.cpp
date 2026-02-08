@@ -6,37 +6,50 @@ typedef long long ll;
 
 class Solution {
 public:
-    long long maxSumTrionic(vector<int>& nums) {
+    long long maxSumTrionic(vector<int>& numsi) {
+        vector<ll> nums(numsi.size());
+        for(int i=0;i<numsi.size();i++){
+            nums[i]=numsi[i];
+        }
         int n=nums.size();
         vector<ll> prefix(n), suffix(n);
         prefix[0]=nums[0];
+        ll inf=LONG_LONG_MAX-0x003f3f3f3f3f3f3f;
         for(int i=1;i<n;i++){
             if(nums[i]>nums[i-1]){
-                prefix[i]=max(prefix[i-1]+nums[i],(ll)nums[i]);
+                if(prefix[i-1]==-inf)
+                    prefix[i]=nums[i]+nums[i-1];
+                else
+                prefix[i]=max(prefix[i-1]+nums[i],(ll)nums[i]+nums[i-1]);
             }else{
-                prefix[i]=nums[i];
+                prefix[i]=-inf;
             }
-            cout<<prefix[i]<<" ";
+            // cout<<prefix[i]<<" ";
         }
-        cout<<endl;
+        // cout<<endl;
         suffix[n-1]=nums[n-1];
         for(int i=n-2;i>=0;i--){
             if(nums[i]<nums[i+1]){
-                suffix[i]=max(suffix[i+1]+nums[i],(ll)nums[i]);
+                if(suffix[i+1]==-inf)
+                    suffix[i]=nums[i]+nums[i+1];
+                else
+                    suffix[i]=max(suffix[i+1]+nums[i],(ll)nums[i]+nums[i+1]);
             }else{
-                suffix[i]=nums[i];
+                suffix[i]=-inf;
             }
-            cout<<suffix[i]<<" ";
+            // cout<<suffix[i]<<" ";
         }
-        cout<<endl;
-        ll ans=LONG_LONG_MIN,sum=prefix[0];
+        // cout<<endl;
+        ll ans=LONG_LONG_MIN,sum=-inf;
         for(int i=1;i<n-1;i++){
-            if(nums[i]<nums[i-1]){
-                sum=max(sum+nums[i],nums[i]+prefix[i-1]);
+            // cout<<prefix[i]<<" "<<suffix[i]<<"\n";
+            if(nums[i]<nums[i-1]){  
+                ans=max(ans,sum+suffix[i]);
+                sum=max(sum+nums[i],prefix[i]);
             }else{                                                                                                                                                                                                                                          
-                sum=nums[i]+prefix[i-1];
+                sum=prefix[i];
             }
-            ans=max(ans,sum+suffix[i+1]);
+            // cout<<sum<<" ";
         }
         return ans;
     }
