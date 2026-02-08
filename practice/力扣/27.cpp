@@ -4,6 +4,19 @@ using namespace std;
 
 typedef long long ll;
 
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int index = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        return index;
+    }
+};
 
 ll qpow(ll b, ll p, ll mod)
 {
@@ -42,19 +55,3 @@ int solve_linear_congruence_equation(int a, int b, int n)
     n /= d;
     return ((long long)x * (b / d) % n + n) % n;
 }
-                                                                                                                                                                            
-
-
-class Solution {
-public:
-    int removeElement(vector<int>& nums, int val) {
-        int i = 0;
-        for (int j = 0; j < nums.size(); j++) {
-            if (nums[j] != val) {
-                nums[i] = nums[j];
-                i++;
-            }
-        }
-        return i;
-    }
-};
