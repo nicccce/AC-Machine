@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,22 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [3330] 找到初始输入字符串 I
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int possibleStringCount(string word) {
+        long long res = 1;
+        int n = word.size();
+        for (int i = 0; i < n; ) {
+            int j = i;
+            while (j < n && word[j] == word[i]) j++;
+            int len = j - i;
+            res += len - 1;
+            i = j;
         }
-        return {};
+        return res;
     }
 };

@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,30 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
-class Solution {
+/*
+ * [1603] 设计停车系统
+ */
+
+class ParkingSystem {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int cnt[4];
+    ParkingSystem(int big, int medium, int small) {
+        cnt[1] = big;
+        cnt[2] = medium;
+        cnt[3] = small;
+    }
+    
+    bool addCar(int carType) {
+        if (cnt[carType] > 0) {
+            cnt[carType]--;
+            return true;
         }
-        return {};
+        return false;
     }
 };
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem* obj = new ParkingSystem(big, medium, small);
+ * bool param_1 = obj->addCar(carType);
+ */

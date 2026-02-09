@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,23 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [2574] 左右元素和的差值
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    vector<int> leftRightDifference(vector<int>& nums) {
+        int n = nums.size();
+        int sum = 0;
+        for (int x : nums) sum += x;
+        vector<int> res(n);
+        int l = 0;
+        for (int i = 0; i < n; i++) {
+            int r = sum - l - nums[i];
+            res[i] = abs(l - r);
+            l += nums[i];
         }
-        return {};
+        return res;
     }
 };

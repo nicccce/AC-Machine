@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,21 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [3643] 垂直翻转子矩阵
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    vector<vector<int>> reverseSubmatrix(vector<vector<int>>& grid, int x, int y, int k) {
+        int i = x, j = x + k - 1;
+        while (i < j) {
+            for (int col = y; col < y + k; col++) {
+                swap(grid[i][col], grid[j][col]);
+            }
+            i++;
+            j--;
         }
-        return {};
+        return grid;
     }
 };

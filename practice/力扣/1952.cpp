@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,18 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [1952] 三除数
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    bool isThree(int n) {
+        int r = sqrt(n);
+        if (r * r != n || r == 1) return false;
+        for (int i = 2; i * i <= r; i++) {
+            if (r % i == 0) return false;
         }
-        return {};
+        return true;
     }
 };

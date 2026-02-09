@@ -5,7 +5,6 @@ using namespace std;
 typedef long long ll;
 
 
-
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -46,13 +45,12 @@ int solve_linear_congruence_equation(int a, int b, int n)
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
-        }
-        return {};
+    double trimMean(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        int k = n / 20;
+        long long sum = 0;
+        for (int i = k; i < n - k; ++i) sum += arr[i];
+        return (double)sum / (n - 2 * k);
     }
 };

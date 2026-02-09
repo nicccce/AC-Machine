@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,30 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
-class Solution {
+/*
+ * [703] 数据流中的第 K 大元素
+ */
+
+class KthLargest {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int k;
+    priority_queue<int, vector<int>, greater<int>> pq;
+    KthLargest(int k, vector<int>& nums) : k(k) {
+        for (int num : nums) {
+            pq.push(num);
+            if (pq.size() > k) pq.pop();
         }
-        return {};
+    }
+    
+    int add(int val) {
+        pq.push(val);
+        if (pq.size() > k) pq.pop();
+        return pq.top();
     }
 };
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest* obj = new KthLargest(k, nums);
+ * int param_1 = obj->add(val);
+ */

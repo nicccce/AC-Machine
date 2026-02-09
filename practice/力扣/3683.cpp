@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,17 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [3683] 完成一个任务的最早时间
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int earliestTime(vector<vector<int>>& tasks) {
+        int ans = INT_MAX;
+        for (auto& t : tasks) {
+            ans = min(ans, t[0] + t[1]);
         }
-        return {};
+        return ans;
     }
 };

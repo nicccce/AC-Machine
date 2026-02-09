@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,19 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [2114] 句子中的最多单词数
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int mostWordsFound(vector<string>& sentences) {
+        int res = 0;
+        for (auto& s : sentences) {
+            int cnt = 1;
+            for (char c : s) if (c == ' ') cnt++;
+            res = max(res, cnt);
         }
-        return {};
+        return res;
     }
 };

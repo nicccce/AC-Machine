@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,25 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [3280] 将日期转换为二进制表示
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
-        }
-        return {};
+    string convertDateToBinary(string date) {
+        int y = stoi(date.substr(0, 4));
+        int m = stoi(date.substr(5, 2));
+        int d = stoi(date.substr(8, 2));
+        auto toBin = [](int x) {
+            if (x == 0) return string("0");
+            string s;
+            while (x > 0) {
+                s = char('0' + x % 2) + s;
+                x /= 2;
+            }
+            return s;
+        };
+        return toBin(y) + "-" + toBin(m) + "-" + toBin(d);
     }
 };

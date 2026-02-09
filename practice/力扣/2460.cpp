@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,27 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [2460] 对数组执行操作
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    vector<int> applyOperations(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                nums[i] *= 2;
+                nums[i + 1] = 0;
+            }
         }
-        return {};
+        int idx = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {
+                nums[idx++] = nums[i];
+            }
+        }
+        while (idx < n) nums[idx++] = 0;
+        return nums;
     }
 };

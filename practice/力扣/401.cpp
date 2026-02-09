@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,21 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [401] 二进制手表
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    vector<string> readBinaryWatch(int turnedOn) {
+        vector<string> res;
+        for (int h = 0; h < 12; h++) {
+            for (int m = 0; m < 60; m++) {
+                if (__builtin_popcount(h) + __builtin_popcount(m) == turnedOn) {
+                    res.push_back(to_string(h) + ":" + (m < 10 ? "0" + to_string(m) : to_string(m)));
+                }
+            }
         }
-        return {};
+        return res;
     }
 };

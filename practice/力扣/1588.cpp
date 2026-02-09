@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,25 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [1588] 所有奇数长度子数组的和
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        int n = arr.size();
+        long long sum = 0;
+        for (int i = 0; i < n; i++) {
+            int left = i;
+            int right = n - 1 - i;
+            int leftOdd = (left + 1) / 2;
+            int leftEven = (left + 2) / 2;
+            int rightOdd = (right + 1) / 2;
+            int rightEven = (right + 2) / 2;
+            long long cnt = (long long)leftOdd * rightOdd + (long long)leftEven * rightEven;
+            sum += (long long)arr[i] * cnt;
         }
-        return {};
+        return sum;
     }
 };

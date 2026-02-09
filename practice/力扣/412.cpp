@@ -6,6 +6,7 @@ typedef long long ll;
 
 
 
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -44,15 +45,20 @@ int solve_linear_congruence_equation(int a, int b, int n)
     return ((long long)x * (b / d) % n + n) % n;
 }
 
+/*
+ * [412] Fizz Buzz
+ */
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    vector<string> fizzBuzz(int n) {
+        vector<string> res;
+        for (int i = 1; i <= n; i++) {
+            if (i % 15 == 0) res.push_back("FizzBuzz");
+            else if (i % 3 == 0) res.push_back("Fizz");
+            else if (i % 5 == 0) res.push_back("Buzz");
+            else res.push_back(to_string(i));
         }
-        return {};
+        return res;
     }
 };

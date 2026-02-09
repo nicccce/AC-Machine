@@ -5,7 +5,6 @@ using namespace std;
 typedef long long ll;
 
 
-
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -46,13 +45,12 @@ int solve_linear_congruence_equation(int a, int b, int n)
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mp;
-        for (int i=0;i<nums.size();i++) {
-            int cnt=target-nums[i];
-            if (mp.count(cnt))return{mp[cnt],i};
-            mp[nums[i]]=i;
+    bool isIsomorphic(string s, string t) {
+        vector<int> m1(256, -1), m2(256, -1);
+        for (int i = 0; i < s.size(); ++i) {
+            if (m1[s[i]] != m2[t[i]]) return false;
+            m1[s[i]] = m2[t[i]] = i;
         }
-        return {};
+        return true;
     }
 };

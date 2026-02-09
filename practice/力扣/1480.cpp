@@ -5,6 +5,8 @@ using namespace std;
 typedef long long ll;
 
 
+
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -42,17 +44,17 @@ int solve_linear_congruence_equation(int a, int b, int n)
     n /= d;
     return ((long long)x * (b / d) % n + n) % n;
 }
-                                                                                                                                                                            
 
+/*
+ * [1480] 一维数组的动态和
+ */
 
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
-        vector<int> result(nums.size());
-        result[0] = nums[0];
         for (int i = 1; i < nums.size(); i++) {
-            result[i] = result[i-1] + nums[i];
+            nums[i] += nums[i - 1];
         }
-        return result;
+        return nums;
     }
 };
