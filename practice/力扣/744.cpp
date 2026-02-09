@@ -1,8 +1,11 @@
-// https://leetcode.cn/problems/find-smallest-letter-greater-than-target/?envType=daily-question&envId=2026-01-31
+// 
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
+
+
+
 ll qpow(ll b, ll p, ll mod)
 {
     ll r = 1;
@@ -14,12 +17,46 @@ ll qpow(ll b, ll p, ll mod)
     }
     return r;
 }
+
+int ex_gcd(int a, int b, int &x, int &y)
+{
+    if (!b)
+    {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    else
+    {
+        int d = ex_gcd(b, a % b, y, x);
+        y -= a / b * x;
+        return d;
+    }
+}
+
+int solve_linear_congruence_equation(int a, int b, int n)
+{
+    int x, y;
+    int d = ex_gcd(a, n, x, y);
+    if (b % d)
+        return -1;
+    n /= d;
+    return ((long long)x * (b / d) % n + n) % n;
+}
+
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        char ans='z'+1;
-        for(auto i:letters)if(i>target&&i<ans)ans=i;
-        if(ans=='z'+1)ans=letters[0];
-        return ans;
+        int n = letters.size();
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (letters[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left < n ? letters[left] : letters[0];
     }
 };
