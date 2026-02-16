@@ -1,10 +1,60 @@
-// 
+// https://leetcode.cn/problems/add-binary/?envType=daily-question&envId=2026-02-15
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
 
-
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int n=a.size(), m=b.size();
+        int jinwei = 0;
+        string ans = string(max(n,m)+1, '0');
+        for(int i=0; i<min(n,m); i++) {
+            if(a[n-1-i] == '1'){
+                if(b[m-1-i] == '1') {
+                    ans[ans.size()-1-i] = jinwei ? '1' : '0';
+                    jinwei = 1;
+                } else {
+                    ans[ans.size()-1-i] = jinwei ? '0' : '1';
+                }
+            } else {
+                if(b[m-1-i] == '1') {
+                    ans[ans.size()-1-i] = jinwei ? '0' : '1';
+                } else {
+                    ans[ans.size()-1-i] = jinwei ? '1' : '0';
+                    jinwei = 0;
+                }
+            }
+        }
+        for(int i=min(n,m); i<max(n,m); i++) {
+            if(n>m) {
+                if(a[n-1-i] == '1') {
+                    ans[ans.size()-1-i] = jinwei ? '0' : '1';
+                } else {
+                    ans[ans.size()-1-i] = jinwei ? '1' : '0';
+                    jinwei = 0;
+                }
+            } else {
+                if(b[m-1-i] == '1') {
+                    ans[ans.size()-1-i] = jinwei ? '0' : '1';
+                } else {
+                    ans[ans.size()-1-i] = jinwei ? '1' : '0';
+                    jinwei = 0;
+                }
+            }
+        }
+        if(jinwei) {
+            ans[0] = '1';
+        }
+        while (ans[0]=='0'&& ans.size()>1)
+        {
+            ans.erase(ans.begin());
+        }
+        
+        return ans;
+    }
+};
 
 
 ll qpow(ll b, ll p, ll mod)
