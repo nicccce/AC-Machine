@@ -1,3 +1,4 @@
+// https://codeforces.com/contest/2195/problem/D
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -7,8 +8,29 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        vector<int> a;
-        cout<<1ll*a.size()-1;
+        int n;cin>>n;
+        vector<int>f(n);
+        for(int i=0;i<n;i++)cin>>f[i];
+        vector<int>vec(n,0);
+        bool valid=true;
+        for(int i=1;i+1<n;i++){
+            int num=f[i+1]+f[i-1]-2*f[i];
+            if(num%2!=0){valid=false;break;}
+            vec[i]=num/2;
+            if(abs(vec[i])>1000){valid=false;break;}
+        }
+        if(!valid){cout<<"-1\n";return;}
+        auto g=[&](int j)->int{
+            int w=f[j];
+            for(int i=1;i+1<n;i++)w-=vec[i]*abs(i-j);
+            return w;
+        };
+        int g0=g(0),gn1=g(n-1);
+        if(n-1==0||g0%(n-1)!=0||gn1%(n-1)!=0){cout<<"-1\n";return;}
+        vec[0]=gn1/(n-1);
+        vec[n-1]=g0/(n-1);
+        if(abs(vec[0])>1000||abs(vec[n-1])>1000){cout<<"-1\n";return;}
+        for(int i=0;i<n;i++)cout<<vec[i]<<" \n"[i+1==n];
     };
     int t;
     for(cin>>t;t;t--)

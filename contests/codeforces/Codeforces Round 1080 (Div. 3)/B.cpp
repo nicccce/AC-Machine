@@ -1,3 +1,4 @@
+// https://codeforces.com/contest/2195/problem/B
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -7,8 +8,24 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        vector<int> a;
-        cout<<1ll*a.size()-1;
+        int n;cin>>n;
+        vector<int>a(n+1);
+        for(int i=1;i<=n;i++)
+        {
+        cin>>a[i];
+        }
+        for(int i=1;i<=n;i+=2)
+        {
+        for(int j=i;j<=n;j*=2)
+        {
+            for(int k=i*2;k<=n;k*=2)
+            {
+            if(a[k/2]>a[k])swap(a[k/2],a[k]);
+            }
+        }
+        }
+        if(is_sorted(begin(a),end(a)))cout<<"YES\n";
+        else cout<<"NO\n";
     };
     int t;
     for(cin>>t;t;t--)

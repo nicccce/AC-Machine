@@ -1,3 +1,4 @@
+// https://codeforces.com/contest/2195/problem/A
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -7,8 +8,21 @@ signed main() {
     cin.tie(0),cout.tie(0);
 
     auto solve = [&]() {
-        vector<int> a;
-        cout<<1ll*a.size()-1;
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        bool found = false;
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+            if (a[i] == 67) {
+                found = true;
+            }
+        }
+        if (found) {
+            cout << "YES\n";
+        } else {
+            cout << "NO\n";
+        }
     };
     int t;
     for(cin>>t;t;t--)
