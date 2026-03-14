@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"e:\\ACM\\2026.3.14排位\\F.cpp","tests":[{"id":1773469965974,"input":"3\n141 592 653\n","output":"653 733\n"},{"id":1773469984537,"input":"5\n10 21 10 21 10\n","output":"31 41\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\ACM\\2026.3.14排位\\F.cpp","group":"local","local":true}
