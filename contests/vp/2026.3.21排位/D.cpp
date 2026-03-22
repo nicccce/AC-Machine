@@ -18,7 +18,7 @@ signed main(){
         }
         int zj=floor(1.0*(2*h-2*t)/(4*t-2*(h+c)));
         int finzj=2;
-        double finans=abs(0.5*(h+c)-t);
+        long double finans=abs(0.5*(h+c)-t);
         for(int i=max(0ll,zj-3);i<=zj+3;i++){
             double ans=abs(1.0*(i*(h+c)+h)/(2*i+1)-t);
             // cout<<i<<' '<<ans<<'\n';
