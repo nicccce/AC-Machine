@@ -29,6 +29,8 @@ signed main(){
                 finzj=2*i+1;
             }
         }
+        stack<char> st;
+        st=stack<char>();
         cout<<finzj<<'\n';
     };
     int t;
