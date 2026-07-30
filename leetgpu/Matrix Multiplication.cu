@@ -1,0 +1,22 @@
+#include <cuda_runtime.h>
+
+__global__ void matrix_multiplication_kernel(const float* A, const float* B, float* C, int M, int N, int K) {
+    dim3 idx(blockDim.x*blockIdx.x+threadIdx.x,blockDim.y*blockIdx.y+threadIdx.y);
+    float sum=0.0f;
+    if (idx.x<K&&idx.y<M){
+            for(int i=0;i<N;i++){
+            sum+=A[idx.y*N+i]*B[i*K+idx.x];
+        }
+        C[idx.y*K+idx.x]=sum;
+    }
+}
+
+// A, B, C are device pointers (i.e. pointers to memory on the GPU)
+extern "C" void solve(const float* A, const float* B, float* C, int M, int N, int K) {
+    dim3 threadsPerBlock(16, 16);
+    dim3 blocksPerGrid((K + threadsPerBlock.x - 1) / threadsPerBlock.x,
+                       (M + threadsPerBlock.y - 1) / threadsPerBlock.y);
+
+    matrix_multiplication_kernel<<<blocksPerGrid, threadsPerBlock>>>(A, B, C, M, N, K);
+    cudaDeviceSynchronize();
+}
