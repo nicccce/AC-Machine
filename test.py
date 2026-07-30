@@ -2,7 +2,6 @@ import numpy as np
 
 def f(x):
     return -2*x**3 + 21*x**2 - 60*x + 50
-
 # 参数设置
 a = 0.5
 b = 3.5
