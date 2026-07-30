@@ -1,0 +1,1 @@
+{"name":"Local: G","url":"e:\\ACM\\AC-Machine\\contests\\buaa\\G.c","tests":[{"id":1783391753995,"input":"6\n10 12\n6 13\n6 11\n9 5\n10 7\n11 8","output":"2\n1\n3\n5\n2\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\ACM\\AC-Machine\\contests\\buaa\\G.c","group":"local","local":true}
