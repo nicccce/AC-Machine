@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/root/AC-Machine/contests/codeforces/2026秋排位1/B.cpp","tests":[{"id":1787509696884,"input":"6\n3\n000\n4\n0010\n7\n1011001\n4\n0001\n2\n11\n1\n0\n","output":"3\n9\n10\n7\n1\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/root/AC-Machine/contests/codeforces/2026秋排位1/B.cpp","group":"local","local":true}
