@@ -1,3 +1,4 @@
+// https://oj.shumeng.tech/p/CSP201403A
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -6,9 +7,24 @@ signed main() {
     ios::sync_with_stdio(0);
     cin.tie(0),cout.tie(0);
     auto solve = [&]() {
+        int n;
+        cin>>n;
+        vector<int> a(n);
+        map<int,int> mp;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            mp[a[i]]++;
+        }
+        int ans=0;
+        for(auto [k,v]:mp){
+            if(k>0){
+                ans+=mp[k]*mp[-k];
+            }
+        }
+        cout<<ans;
     };
-    int t;
-    for(cin>>t;t;t--)
+    // int t;
+    // for(cin>>t;t;t--)
     solve();
     return 0;
 }
