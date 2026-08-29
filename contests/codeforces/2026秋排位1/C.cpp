@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
+#define lobit(x) (x&-x)
 
 signed main() {
     ios::sync_with_stdio(0);
