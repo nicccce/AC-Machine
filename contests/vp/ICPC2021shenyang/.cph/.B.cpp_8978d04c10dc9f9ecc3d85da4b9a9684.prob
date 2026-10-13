@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"h:\\Study\\new\\ICPC2021shenyang\\B.cpp","tests":[{"id":1791880203776,"input":"3 2\n1 2 1\n2 3 1\n","output":"1"},{"id":1791880220234,"input":"3 3\n1 2 1\n2 3 1\n1 3 1\n","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"h:\\Study\\new\\ICPC2021shenyang\\B.cpp","group":"local","local":true}
