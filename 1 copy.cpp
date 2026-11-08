@@ -21,7 +21,7 @@ signed main() {
             int mi=inf;
             dp1[1]=inf;
             for(int j=1;j<n;j++){
-                mi=min(mi,dp0[j]+abs(a[(j+1)>n?1:(j+1)]-b[i])*y-j*z+(j==n)*x);
+                mi=min(mi,dp0[j]+abs(a[(j+1)>n?1:(j+1)]-b[i])*y-j*z);
                 dp1[(j+1)>n?1:(j+1)]=mi+(j)*z;
             }
             mi=inf;
