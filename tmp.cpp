@@ -1,60 +1,61 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
+const int N=1005;
+int t[N];
+int mi[N];
 
 signed main() {
     ios::sync_with_stdio(0);
     cin.tie(0),cout.tie(0);
-    set<string> st0;
-    map<string,string> mp0;
-    set<string> st1;
-    map<string,string> mp1;
-    vector<string> a;
-    for(int c0='0';c0<'2';c0++)
-    for(int c1='0';c1<'2';c1++)
-    for(int c2='0';c2<'2';c2++){
-        string sss="";
-        sss.push_back(c0);
-        sss.push_back(c1);
-        sss.push_back(c2);
-        mp0[sss]="";
-        mp1[sss]="";
-        for(int c3='0';c3<'2';c3++){
-            string ss="";
-            ss.push_back(c0);
-            ss.push_back(c1);
-            ss.push_back(c2);
-            ss.push_back(c3);
-            a.push_back(ss);
+    int T;
+    cin>>T;
+    mi[0]=1;
+    for(int i=1;i<=24;i++)
+    {
+        mi[i]=mi[i-1]*2;
+    }
+    while(T--)
+    {
+        int a=0,b=0;
+        int n;
+        cin>>n;
+        for(int i=1;i<=n;i++)
+        {
+            int x;
+            cin>>x;
+            t[x]++;
         }
-    }
-    for(auto s:a){
-        if((s[0]!='0'||s[1]!='0')&&(s.find("000")==s.npos)&&(s.find("111")==s.npos)){
-            st0.insert(s);
+        bool flag=true;
+        for(int i=0;i<=24;i++)
+        {
+           // cout<<"----"<<t[i]<<" ";
+            if(t[i]==0)continue;
+            if(t[i]%2==0)
+            {
+                a+=mi[i]*(t[i]/2);
+                b+=mi[i]*(t[i]/2);
+                continue;
+            }
+            if(flag)
+            {
+                a+=mi[i]*(t[i]/2+1);
+                b+=mi[t[i]/2];
+                flag=false;
+            }else
+            {
+                a+=mi[i]*(t[i]/2);
+                b+=mi[i]*(t[i]/2+1);
+            }
         }
-    }
-    auto it=st0.begin();
-    for(auto [k,v]:mp0){
-        mp0[k]=*it;
-        it++;
-        // cout<<k<<": "<<mp0[k]<<'\n';
-    }
-    for(auto s:a){
-        if((s[0]!='1'||s[1]!='1')&&(s.find("000")==s.npos)&&(s.find("111")==s.npos)){
-            st1.insert(s);
+       cout<<a<<" "<<b<<'\n';
+        cout<<a*b<<'\n';
+        for(int i=0;i<=24;i++)
+        {
+            t[i]=0;
         }
+
     }
-    it=st1.begin();
-    for(auto [k,v]:mp1){
-        mp1[k]=*it;
-        it++;
-        cout<<k<<": "<<mp1[k]<<'\n';
-    }
-    // auto solve = [&]() {
-    // };
-    // int t;
-    // for(cin>>t;t;t--)
-    // solve();
     return 0;
 }
 
