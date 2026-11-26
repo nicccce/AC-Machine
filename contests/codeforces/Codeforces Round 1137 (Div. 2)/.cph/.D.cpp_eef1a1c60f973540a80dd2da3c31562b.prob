@@ -1,0 +1,1 @@
+{"name":"Local: D","url":"/root/AC-Machine/contests/codeforces/Codeforces Round 1137 (Div. 2)/D.cpp","tests":[{"id":1795441077477,"input":"3\n3\n1 -1 2\n2\n-1 3\n4\n5 -3 -2 4\n","output":"1\n-1\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/root/AC-Machine/contests/codeforces/Codeforces Round 1137 (Div. 2)/D.cpp","group":"local","local":true}
